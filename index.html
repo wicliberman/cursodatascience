@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datascience para empresas</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f7fa;
+            color: #333;
+        }
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+                }
+        h1 {
+            margin: 0;
+            font-size: 2.2rem;
+        }
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.8;
+            margin-top: 10px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .pdf-container {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            padding: 30px;
+            margin-top: 30px;
+        }
+        .tabs {
+            display: flex;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            margin-right: 10px;
+            border-radius: 5px 5px 0 0;
+            transition: all 0.3s ease;
+        }
+        .tab.active {
+            background-color: #3498db;
+            color: white;
+        }
+        .tab:hover:not(.active) {
+            background-color: #f0f0f0;
+        }
+        .pdf-viewer {
+            width: 100%;
+            height: 700px;
+            border: none;
+        }
+        .download-btn {
+            display: inline-block;
+            background-color: #2ecc71;
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+        .download-btn:hover {
+            background-color: #27ae60;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+        /* Responsive */
+        @media (max-width: 768px) {
+            .pdf-viewer {
+                height: 500px;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Datascience para empresas</h1>
+        <div class="subtitle">Aprende a transformar datos en decisiones estratégicas</div>
+    </header>
+
+    <div class="container">
+        <div class="pdf-container">
+            <div class="tabs">
+                <div class="tab active" onclick="showViewer()">Ver curso</div>
+                <div class="tab" onclick="showDownload()">Descargar</div>
+            </div>
+            
+            <div id="viewer-section">
+                <!-- El PDF se incrustará aquí -->
+                <iframe class="pdf-viewer" id="pdf-viewer" src="CURSO PROGRAMA DATASCIENCE EMPRESAS.pdf"></iframe>
+                <p>
+                    Este visor permite navegar por todo el contenido del curso directamente en tu navegador.
+                </p>
+            </div>
+            
+            <div id="download-section" style="display: none; text-align: center;">
+                <img src="/api/placeholder/300/200" alt="Imagen del curso" />
+                <h2>¡Descarga el curso completo!</h2>
+                <p>
+                    Obtén acceso completo al curso de Datascience para empresas. Podrás estudiarlo
+                    sin conexión a internet y en cualquier dispositivo compatible con PDF.
+                </p>
+                <a href="CURSO PROGRAMA DATASCIENCE EMPRESAS.pdf" class="download-btn" download>Descargar PDF</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2025 Datascience para empresas. Todos los derechos reservados.
+    </footer>
+
+    <script>
+        function showViewer() {
+            document.getElementById('viewer-section').style.display = 'block';
+            document.getElementById('download-section').style.display = 'none';
+            document.querySelectorAll('.tab')[0].classList.add('active');
+            document.querySelectorAll('.tab')[1].classList.remove('active');
+        }
+        
+        function showDownload() {
+            document.getElementById('viewer-section').style.display = 'none';
+            document.getElementById('download-section').style.display = 'block';
+            document.querySelectorAll('.tab')[0].classList.remove('active');
+            document.querySelectorAll('.tab')[1].classList.add('active');
+        }
+    </script>
+</body>
+</html>
